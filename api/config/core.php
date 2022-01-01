@@ -4,19 +4,17 @@
 include_once __DIR__ . '/../../vendor/autoload.php';
 // Use the REST API Client to make requests to the Twilio REST API
 use Twilio\Rest\Client;
-use telesign\sdk\messaging\MessagingClient;
-use function telesign\sdk\util\randomWithNDigits;
 // show error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL); 
 // home page url
-$home_url="http://fiveplanner";
+$home_url="http://fiveplanner.com";
 // account page url
 $account_url= $home_url."/";
 // admin page url
 $admin_url= $home_url."/admin";
 // app name
-$app_name="Irain Wallet";  
+$app_name="Five Planner";  
 // app contact
 $app_contact="(+1) 501-550-3684"; 
 $app_contact_raw="+15015503684"; 
