@@ -8,5 +8,5 @@ Five Planner App, a five year planner app built around php7+, using the api conv
 Quick start options:
 
 - [Download from Okeke Kingsley](https://github.com/kingso101).
-- Clone the repo: `git clone https://github.com/kingso101.git`.
+- Clone the repo: `git clone https://github.com/kingso101/5-planner-app.git`.
 
