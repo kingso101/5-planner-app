@@ -1,0 +1,145 @@
+html {
+  scroll-behavior: smooth;
+}
+body{
+  box-sizing: border-box;
+}
+
+.modal{
+  overflow: auto;
+}
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #fefefe;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close, #updatePriorityModalCloseBtn, #addPriorityModalCloseBtn, #readPlanModalCloseBtn, #addPlanModalCloseBtn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.close:hover,
+.close:focus,
+.updatePriorityModalCloseBtn:hover,
+.updatePriorityModalCloseBtn:focus,
+.addPriorityModalCloseBtn:hover,
+.addPriorityModalCloseBtn:focus,
+.readPlanModalCloseBtn:hover,
+.readPlanModalCloseBtn:focus,
+.addPlanModalCloseBtn:hover,
+.addPlanModalCloseBtn:focus{
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+i.ti-help-alt-pill{
+  color:#68b3c8;
+  cursor:pointer;
+}
+
+.none{
+  display: none;
+}
+
+.block{
+  display: block;
+}
+/*[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+    float: left;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #F87DA9;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}*/
+
+
+
+.tabs {
+  --bar-color: red;
+  --background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, #e0e0e0);
+
+  display: flex;
+  width: 70%;
+  float: left;
+}
+
+.tabs > .tab {
+  flex: 1;
+  display: flex;
+}
+
+.tab > .tab-input {
+  width: 0;
+  height: 0;
+  margin: 0;
+  display: none;
+}
+
+.tab > .tab-box {
+  width: 100%;
+  text-align: center;
+  transition: 0.5s;
+  border-bottom: 2px solid rgba(0,0,0,0);
+}
+
+.tab > .tab-input:checked + .tab-box {
+  background: var(--background);
+  border-color: var(--bar-color);
+}
+
+#editPlanIntBtn{
+  cursor: pointer;
+}
