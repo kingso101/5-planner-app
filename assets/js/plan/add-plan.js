@@ -1,167 +1,225 @@
 $(document).ready(function(){
- 
     // show html form when 'update plan' button was clicked
     $(document).on('click', '#add_plan_modal', function(){
 		// display the modal box
-		$("#addPlanModal").css("display", "block");
-		var client_id = $(this).attr('data-id');
+		$("#addPlanTypeModal").css("display", "block");
+		var idRef = $(this).attr('data-id');
 	    
 	    // load list of categories
 	    // store 'update plan' html to this variable
-		var add_plan_html=`
-			<form id="addPlanForm">
+		var add_plan_type_html=`
+			<form id="choosePlanTypeForm">
 				<div class="row">
                     <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Goal <i class="ti-help-alt ti-help-alt-pill"></i></label>
-                            <input type="text" class="form-control border-input" id="goal" name="goal" placeholder="Type Goal...">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Plan Type <i class="ti-help-alt ti-help-alt-pill"></i></label>
-                            <input type="text" class="form-control border-input" id="plan_type" name="plan_type" placeholder="Choose Plan Type">
-                        </div>
-                    </div>
-                </div>
-                <input type="hidden" id="client_id" name="client_id" value="`+client_id+`">
-                <input type="hidden" id="add_key_id" name="add_key_id" value="">
-                <div class="row">
-                    <div class="col-md-6">
-                    	<label style="float:left">Plan Period <i class="ti-help-alt ti-help-alt-pill"></i></label>
-                        <div class="form-group">
-                            <label style="float:right">From <i class="ti-help-alt ti-help-alt-pill"></i></label>
-                            <input type="date" class="form-control border-input" id="from_date" name="from_date" placeholder="From">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label style="float:right">To <i class="ti-help-alt ti-help-alt-pill"></i></label>
-                            <input type="date" class="form-control border-input" id="to_date" name="to_date" placeholder="To">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Description <i class="ti-help-alt ti-help-alt-pill"></i></label>
-                            <textarea rows="5" class="form-control border-input" id="description" name="description" placeholder="Please describe the reason for this goal"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Resources <i class="ti-help-alt ti-help-alt-pill"></i></label>
-                            <textarea rows="5" class="form-control border-input" id="resources" name="resources" placeholder="Please enter skills or resources needed to achieve this goal"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                    	<label style="float:left;">
-                			Priorities 
-                			<i class="ti-help-alt ti-help-alt-pill"></i>
-                		</label>
-                        <div class="form-group">
-                            <div class="tabs">
-				                <label class="tab">
-				                    <input type="radio" id="radio-a1" name="plan_int_new" class="tab-input" value="1">
-				                    <div class="tab-box">1 Month</div>
-				                </label>
-				                <label class="tab">
-				                    <input type="radio" id="radio-a6" name="plan_int_new" class="tab-input" value="6">
-				                    <div class="tab-box">6 Months</div>
-				                </label>
-				                <label class="tab">
-				                    <input type="radio" id="radio-a12" name="plan_int_new" class="tab-input" value="12">
-				                    <div class="tab-box">Next Year</div>
-				                </label>
-				                <label class="tab">
-				                    <input type="radio" id="radio-a24" name="plan_int_new" class="tab-input" value="24">
-				                    <div class="tab-box">2 Years</div>
-				                </label>
-				                <label class="tab">
-				                    <input type="radio" id="radio-a60" name="plan_int_new" class="tab-input" value="60">
-				                    <div class="tab-box">5 Years</div>
-				                </label>
-				            </div>
+                    	<div class="form-group">
+                            <p>
+						    	<input type="radio" id="test1" name="radio-group" value="Life">
+						    	<label for="test1">Life</label>
+						  	</p>
+						  	<p>
+						    	<input type="radio" id="test2" name="radio-group" value="Career">
+						    	<label for="test2">Career</label>
+						  	</p>
+						  	<p>
+						    	<input type="radio" id="test3" name="radio-group" value="Travel">
+						    	<label for="test3">Travel</label>
+						  	</p>
+						  	<p>
+						    	<input type="radio" id="test4" name="radio-group" value="Family">
+						    	<label for="test4">Family</label>
+						  	</p>
+						  	<p>
+						    	<input type="radio" id="test5" name="radio-group" value="Other">
+						    	<label for="test5">Other</label>
+						  	</p>
+						  	<input type="hidden" id="idRef" name="idRef" value="`+idRef+`">
                         </div>
                     </div>
                 </div>
                 <div class="clearfix"></div>
-                <div class="card" style="border:1px solid lightgrey;">
-                    <div class="content">
-                    	<div class="row">
-	                        <div class="col-md-12">
-	                            <label style="float:left;">
-	                    			First Reward 
-	                    			<i class="ti-help-alt ti-help-alt-pill"></i>
-	                    		</label>
-	                    		<div class="form-group">
-	                                <input type="text" class="form-control border-input" id="reward" name="reward" placeholder="Please enter skills or resources needed to achieve this goal">
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="row">
-	                        <div class="col-md-12">
-	                        	<div class="form-group">
-	                                <label class="tab" style="float:right;">
-					                    <a id="addNewPlanPriorityBtn" data-id="`+client_id+`" href="javascript:void(0);" class="tab-box addNewPlanPriorityBtn" >
-					                    	<i id="ti-plus" class="ti-plus ti-help-alt-pill"></i>
-					                    	Add Priorities
-					                    </a>
-					                </label>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    
-	                    <div style="border-top:1px solid lightgrey;width:100%;" class="clearfix"></div>
-	                    <div id="addNewPriorityModal" class="card none">
-		                    <div class="header">
-		                        <h4 class="title">New Priority</h4>
-		                    </div>
-		                    <div class="content" id="add_new_plan_priority_div">
-		                    	<div class="row">
-				                    <div class="col-md-12">
-				                        <div class="form-group">
-				                            <label>Priority:</label>
-				                            <textarea rows="5" class="form-control border-input" id="add_new_priority_label" name="add_new_priority_label" placeholder="Priority Label"></textarea>
-				                        </div>
-				                    </div>
-				                </div>
-				                <div class="row">
-				                    <div class="col-md-12">
-				                        <div class="form-group">
-				                            <label>Date:</label>
-				                            <input type="date" class="form-control border-input" id="add_new_priority_date" name="add_new_priority_date" placeholder="Priority Date">
-				                        </div>
-				                    </div>
-				                </div>
-				                <i class="tab" style="float:right;">
-				                    Note: You will receive an email on this date reminding you of this priority
-				                </i><br>
-				                <div class="clearfix"></div>
-		                    </div>
-		                </div>
-	                    <div style="border-top:1px solid lightgrey;width:100%;" class="clearfix"></div><br><br>
-                    </div>
-                </div>
                 <div class="row" style="float:right;">
                 	<div class="text-center" style="display:inline-block;">
-	                    <button type="button" class="btn btn-danger btn-fill addPlanModalCloseBtn" style="background-color:#ec3b3b;color:#fff;">Close</button>
+	                    <button type="button" class="btn btn-danger btn-fill addPlanTypeModalCloseBtn" style="background-color:#ec3b3b;color:#fff;">Cancel</button>
 	                </div>
 	                <div class="text-center" style="display:inline-block;">
-	                    <button type="submit" name="addPlan" id="addPlan" style="background-color:#2478d3;color:#fff;" class="btn btn-info btn-fill">Save</button>
+	                    <button type="submit" name="nextPlan" id="nextPlan" style="background-color:#2478d3;color:#fff;" class="btn btn-info btn-fill">Next</button>
 	                </div>
                 </div>
                 <div class="clearfix"></div>
             </form>`;
 			// inject to 'page-content' of our app
-			$("#add_div").html(add_plan_html);
+			$("#add_plan_type_div").html(add_plan_type_html);
 		});
+    });
+
+	$(document).on('submit', '#choosePlanTypeForm', function(e){
+		e.preventDefault();
+		var idRef = $('#idRef').val();
+		var radio = $('input:radio[name="radio-group"]:checked').val(); 
+		var checkedOk = $('input:radio[name="radio-group"]:checked').val()?true:false; 
+		if (checkedOk == "" || idRef == "") {
+			toastr.error('Select plan type.');
+		}else{
+			$("#addPlanTypeModal").hide("slow");
+			$('#plan_type').val(radio);
+			$('#client_id').val(idRef);
+			$('#title').html(radio);
+			$("#addPlanModal").show("slow"); 
+		}
+	});
+
+    $(document).on('click', '#nextPlan', function(){
+		// display the modal box
+		$("#addPlanTypeModal").css("display", "block");
+		var client_id = $('#idRef').val();
+	    // load list of categories
+	    // store 'update plan' html to this variable
+		var add_plan_html=`
+		<form id="addPlanForm">
+			<div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Goal <i data-bs-toggle="tooltip" data-bs-placement="top" title="Please input goal for this plan." class="ti-help-alt ti-help-alt-pill"></i></label>
+                        <input type="text" class="form-control border-input" id="goal" name="goal" placeholder="Type Goal...">
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="client_id" name="client_id" value="">
+            <input type="hidden" id="add_key_id" name="add_key_id" value="">
+            <input type="hidden" id="plan_type" name="plan_type" value="">
+            <div class="row">
+                <div class="col-md-6">
+                	<label style="float:left">Plan Period <i data-bs-toggle="tooltip" data-bs-placement="top" title="Please choose start and end date for this plan." class="ti-help-alt ti-help-alt-pill"></i></label>
+                    <div class="form-group">
+                        <label style="float:right">Fom <i data-bs-toggle="tooltip" data-bs-placement="top" title="Please input start date for this plan." class="ti-help-alt ti-help-alt-pill"></i></label>
+                        <input type="date" class="form-control border-input" id="from_date" name="from_date" placeholder="From">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label style="float:right">To <i data-bs-toggle="tooltip" data-bs-placement="top" title="Please input end date for this plan." class="ti-help-alt ti-help-alt-pill"></i></label>
+                        <input type="date" class="form-control border-input" id="to_date" name="to_date" placeholder="To">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Description <i data-bs-toggle="tooltip" data-bs-placement="top" title="Please describe the reason for this goal." class="ti-help-alt ti-help-alt-pill"></i></label>
+                        <textarea rows="5" class="form-control border-input" id="description" name="description" placeholder="Please describe the reason for this goal"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Resources <i data-bs-toggle="tooltip" data-bs-placement="top" title="Please enter skills or resources needed to achieve this goal" class="ti-help-alt ti-help-alt-pill"></i></label>
+                        <textarea rows="5" class="form-control border-input" id="resources" name="resources" placeholder="Please enter skills or resources needed to achieve this goal."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                	<label style="float:left;">
+            			Priorities 
+            			<i data-bs-toggle="tooltip" data-bs-placement="top" title="Please select interval for this plan." class="ti-help-alt ti-help-alt-pill"></i>
+            		</label>
+                    <div class="form-group">
+                        <div class="tabs">
+			                <label class="tab">
+			                    <input type="radio" id="radio-a1" name="plan_int_new" class="tab-input" value="1">
+			                    <div class="tab-box">1 Month</div>
+			                </label>
+			                <label class="tab">
+			                    <input type="radio" id="radio-a6" name="plan_int_new" class="tab-input" value="6">
+			                    <div class="tab-box">6 Months</div>
+			                </label>
+			                <label class="tab">
+			                    <input type="radio" id="radio-a12" name="plan_int_new" class="tab-input" value="12">
+			                    <div class="tab-box">Next Year</div>
+			                </label>
+			                <label class="tab">
+			                    <input type="radio" id="radio-a24" name="plan_int_new" class="tab-input" value="24">
+			                    <div class="tab-box">2 Years</div>
+			                </label>
+			                <label class="tab">
+			                    <input type="radio" id="radio-a60" name="plan_int_new" class="tab-input" value="60">
+			                    <div class="tab-box">5 Years</div>
+			                </label>
+			            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="card" style="border:1px solid lightgrey;">
+                <div class="content">
+                	<div class="row">
+                        <div class="col-md-12">
+                            <label style="float:left;">
+                    			First Reward 
+                    			<i data-bs-toggle="tooltip" data-bs-placement="top" title="Please add reward for this plan." class="ti-help-alt ti-help-alt-pill"></i>
+                    		</label>
+                    		<div class="form-group">
+                                <input type="text" class="form-control border-input" id="reward" name="reward" placeholder="Please enter skills or resources needed to achieve this goal">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        	<div class="form-group">
+                                <label class="tab" style="float:right;">
+				                    <a id="addNewPlanPriorityBtn" data-id="`+client_id+`" href="javascript:void(0);" class="tab-box addNewPlanPriorityBtn" >
+				                    	<i id="ti-plus" data-bs-toggle="tooltip" data-bs-placement="top" title="Please add priority for this plan." class="ti-plus ti-help-alt-pill"></i>
+				                    	Add Priorities
+				                    </a>
+				                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="border-top:1px solid lightgrey;width:100%;" class="clearfix"></div>
+                    <div id="addNewPriorityModal" class="card none">
+	                    <div class="header">
+	                        <h4 class="title">New Priority</h4>
+	                    </div>
+	                    <div class="content" id="add_new_plan_priority_div">
+	                    	<div class="row">
+			                    <div class="col-md-12">
+			                        <div class="form-group">
+			                            <label>Priority:</label>
+			                            <textarea rows="5" class="form-control border-input" id="add_new_priority_label" name="add_new_priority_label" placeholder="Priority Label"></textarea>
+			                        </div>
+			                    </div>
+			                </div>
+			                <div class="row">
+			                    <div class="col-md-12">
+			                        <div class="form-group">
+			                            <label>Date:</label>
+			                            <input type="date" class="form-control border-input" id="add_new_priority_date" name="add_new_priority_date" placeholder="Priority Date">
+			                        </div>
+			                    </div>
+			                </div>
+			                <i class="tab" style="float:right;">
+			                    Note: You will receive an email on this date reminding you of this priority
+			                </i><br>
+			                <div class="clearfix"></div>
+	                    </div>
+	                </div>
+                    <div style="border-top:1px solid lightgrey;width:100%;" class="clearfix"></div><br><br>
+                </div>
+            </div>
+            <div class="row" style="float:right;">
+            	<div class="text-center" style="display:inline-block;">
+                    <button type="button" class="btn btn-danger btn-fill addPlanModalCloseBtn" style="background-color:#ec3b3b;color:#fff;">Close</button>
+                </div>
+                <div class="text-center" style="display:inline-block;">
+                    <button type="submit" name="addPlan" id="addPlan" style="background-color:#2478d3;color:#fff;" class="btn btn-info btn-fill">Save</button>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </form>`;
+		// inject to 'page-content' of our app
+		$("#add_div").html(add_plan_html);
     });
 	
 	// Add new priority label
@@ -216,6 +274,7 @@ $(document).ready(function(){
 		        	setTimeout(function(){
 		            	toastr.success(result.message);
 		            	$('#addPlan').delay(3000).html('Save');
+		            	$('#title').html('Add');
 		            	$("#addPlanForm")[0].reset();
 					}, 4000);
 		        },

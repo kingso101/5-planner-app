@@ -23,7 +23,7 @@ $analytics->client_id = isset($_GET['_id']) ? $_GET['_id'] : die();
 $stmt = $analytics->readOnePersonanalytics();
 $num = $stmt->rowCount();
 // check if more than 0 record found
-if($num>1){
+if($num=1 || $num>1){
  
     // analytics array
     $analytics_arr=array();

@@ -17,13 +17,13 @@ $db = $database->connect();
 $plan = new Plan($db);
 
 // set ID property of record to read
-$plan->plan_id = isset($_GET['_id']) ? $_GET['_id'] : die();
+$plan->client_id = isset($_GET['_id']) ? $_GET['_id'] : die();
 
 // read the details of plan to be edited
-$stmt = $plan->readOnePersonPlans($plan->plan_id);
+$stmt = $plan->readOnePersonPlans($plan->client_id);
 $num = $stmt->rowCount();
 // check if more than 0 record found
-if($num>1){
+if($num=1 || $num>1){
  
     // plan array
     $plan_arr=array();
@@ -40,8 +40,10 @@ if($num>1){
         $created = strtotime($created);
 
         $plan_item = array(
+            "_id" => $_id,
             "plan_id" => $plan_id,
             "key_id" => $key_id,
+            "client_id" => $client_id,
             "plan_type" => ucfirst($plan_type),
             "goal" => ucwords($goal),
             "from_date" => $from_date,

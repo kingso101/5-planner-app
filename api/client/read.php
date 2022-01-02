@@ -36,11 +36,6 @@ if($num>0){
         extract($row);
         $created = strtotime($created);
         
-        // if (strlen($address) <= 50) {
-        //   $address = $address;
-        // } else {
-        //   $address = substr($address, 0, 50) . '...';
-        // }
         $contact_number = $contact_number;
  
         $client_item = array(
@@ -50,15 +45,6 @@ if($num>0){
             "lastname" => ucfirst($lastname),
             "fullname" => ucwords($firstname ." ".$lastname),
             "email" => ucfirst($email),
-            "password" => $password,
-            "country" => $country,
-            "state" => ucwords($state),
-            "address" => ucfirst($address),
-            "contact_number" => $contact_number,
-            "gender" => ucfirst($gender),
-            "dob" => $dob,
-            "isVerified" => $isVerified,
-            "profile_img" => $profile_img,
             "created" => date('M d Y', $created),
             "modified" => $modified
         );

@@ -122,18 +122,29 @@
                         }
 
                         $("#print").click(function(){
-                          // alert("Hey");
                           printData();
                         });
 
-                        // refreshTable();
+                        var _id = "<?= $client_id; ?>";
                         // Refreshes every 2 seconds
                         var interval = 2000;
                         $(function() {
                             setInterval(function() {
-                                $.getJSON("/api/plan/read.php", function(data){
+                                $.getJSON("/api/plan/read_single_person_plan.php?_id="+_id, function(data){
                                     var sn = 0;
                                     var read_plan_html = "";
+                                    if (data.records == "") {
+                                        $("#planbody").html(`<div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="content">
+                                                        No plan(s) created yet.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>`);
+                                        return false;
+                                    }
                                     $.each(data.records, function(key, val) {
                                         sn++;
                                         read_plan_html+=`<div class="row">

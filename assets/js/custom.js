@@ -3,6 +3,7 @@ var addPlanModal = document.getElementById("addPlanModal");
 var updatePlanModal = document.getElementById("updatePlanModal");
 var addPriorityModal = document.getElementById("addPriorityModal");
 var readPlanModal = document.getElementById("readPlanModal");
+var addPlanTypeModal = document.getElementById("addPlanTypeModal");
 var updatePriorityModal = document.getElementById("updatePriorityModal");
 
 // Get the <span> element that closes the modal
@@ -33,7 +34,7 @@ $(document).on('click', '.addPlanModalCloseBtn', function(){
   addPlanModal.style.display = "none";
 });
 
-// $('.updateModalBtn').on('click' , function(){
-//   alert("Hey");
-// });
+$(document).on('click', '.addPlanTypeModalCloseBtn', function(){
+  addPlanTypeModal.style.display = "none";
+});
 

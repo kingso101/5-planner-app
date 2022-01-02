@@ -28,7 +28,7 @@ $(document).ready(function(){
 					<div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Goal <i class="ti-help-alt ti-help-alt-pill"></i></label>
+                                <label>Goal <i data-bs-toggle="tooltip" data-bs-placement="top" title="Please input goal for this plan." class="ti-help-alt ti-help-alt-pill"></i></label>
                                 <input type="text" class="form-control border-input" id="up_goal" name="up_goal" placeholder="Goal" value="` + goal + `">
                             </div>
                         </div>
@@ -36,7 +36,7 @@ $(document).ready(function(){
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Plan Type <i class="ti-help-alt ti-help-alt-pill"></i></label>
+                                <label>Plan Type <i data-bs-toggle="tooltip" data-bs-placement="top" title="Please choose plan type." class="ti-help-alt ti-help-alt-pill"></i></label>
                                 <input type="text" class="form-control border-input" id="up_plan_type" name="up_plan_type" placeholder="Plan Type" value="` + plan_type + `">
                             </div>
                         </div>
@@ -44,13 +44,13 @@ $(document).ready(function(){
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>From <i class="ti-help-alt ti-help-alt-pill"></i></label>
+                                <label>From <i data-bs-toggle="tooltip" data-bs-placement="top" title="Please input start date for this plan." class="ti-help-alt ti-help-alt-pill"></i></label>
                                 <input type="date" class="form-control border-input" id="up_from_date" name="up_from_date" placeholder="From" value="` + from_date + `">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>To <i class="ti-help-alt ti-help-alt-pill"></i></label>
+                                <label>To <i data-bs-toggle="tooltip" data-bs-placement="top" title="Please input end date for this plan." class="ti-help-alt ti-help-alt-pill"></i></label>
                                 <input type="date" class="form-control border-input" id="up_to_date" name="up_to_date" value="` + to_date + `" placeholder="To">
                             </div>
                         </div>
@@ -58,7 +58,7 @@ $(document).ready(function(){
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Description <i class="ti-help-alt ti-help-alt-pill"></i></label>
+                                <label>Description <i data-bs-toggle="tooltip" data-bs-placement="top" title="Please describe the reason for this goal." class="ti-help-alt ti-help-alt-pill"></i></label>
                                 <textarea rows="5" class="form-control border-input" id="up_description" name="up_description" placeholder="Please describe the reason for this goal" value="` + description + `">` + description + `</textarea>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ $(document).ready(function(){
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Resources <i class="ti-help-alt ti-help-alt-pill"></i></label>
+                                <label>Resources <i data-bs-toggle="tooltip" data-bs-placement="top" title="Please enter skills or resources needed to achieve this goal" class="ti-help-alt ti-help-alt-pill"></i></label>
                                 <textarea rows="5" class="form-control border-input" id="up_resources" name="up_resources" placeholder="Please enter skills or resources needed to achieve this goal" value="` + resources + `">` + resources + `</textarea>
                             </div>
                         </div>
@@ -75,7 +75,7 @@ $(document).ready(function(){
                         <div class="col-md-12">
                         	<label style="float:left;">
                     			Priorities 
-                    			<i class="ti-help-alt ti-help-alt-pill"></i>
+                    			<i data-bs-toggle="tooltip" data-bs-placement="top" title="Please select interval for this plan." class="ti-help-alt ti-help-alt-pill"></i>
                     		</label>
                             <div class="form-group">
                                 <div class="tabs">
@@ -113,7 +113,7 @@ $(document).ready(function(){
 		                        <div class="col-md-12">
 		                            <label style="float:left;">
 		                    			First Reward 
-		                    			<i class="ti-help-alt ti-help-alt-pill"></i>
+		                    			<i data-bs-toggle="tooltip" data-bs-placement="top" title="Please add reward for this plan." class="ti-help-alt ti-help-alt-pill"></i>
 		                    		</label>
 		                    		<div class="form-group">
 		                                <input type="text" class="form-control border-input" id="up_reward" name="up_reward" placeholder="Please enter skills or resources needed to achieve this goal" value="` + reward + `">
@@ -125,7 +125,7 @@ $(document).ready(function(){
 		                        	<div class="form-group">
 		                                <label class="tab" style="float:right;">
 						                    <a id="addPlanPriorityBtn" href="javascript:void(0);" class="tab-box addPlanPriorityBtn" data-id='` + data._id + `'>
-						                    	<i class="ti-plus ti-help-alt-pill"></i>
+						                    	<i data-bs-toggle="tooltip" data-bs-placement="top" title="Please add priority for this plan." class="ti-plus ti-help-alt-pill"></i>
 						                    	Add Priorities
 						                    </a>
 						                </label>

@@ -8,7 +8,7 @@ use Twilio\Rest\Client;
 ini_set('display_errors', 1);
 error_reporting(E_ALL); 
 // home page url
-$home_url="http://fiveplanner.com";
+$home_url="http://fiveplanner";
 // account page url
 $account_url= $home_url."/";
 // admin page url

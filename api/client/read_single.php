@@ -27,12 +27,6 @@ $client->readOne();
  
 if($client->firstname!=null){
     // create array
-    $countryCount = strlen($client->country);
-    if ($countryCount === 3) {
-        $country = ucwords($client->country);
-    }else{
-        $country = ucfirst($client->country);
-    }
     $client_arr = array(
         "client_id" =>  $client->client_id,
         "_id" =>  $client->_id,
@@ -40,16 +34,6 @@ if($client->firstname!=null){
         "lastname" => ucfirst($client->lastname),
         "fullname" => ucwords($client->firstname ." ".$client->lastname),
         "email" => ucfirst($client->email),
-        "gender" => ucfirst($client->gender),
-        "contact_number" => $client->contact_number,
-        "address" => ucfirst($client->address),
-        "dob" => ucfirst($client->dob),
-        "description" => ucfirst($client->description),
-        "country" => $country,
-        "state" => ucfirst($client->state),
-        "password" => $client->password,
-        "isVerified" => $client->isVerified,
-        "profile_img" => $client->profile_img,
         "created" => $client->created,
         "modified" => $client->modified
     );

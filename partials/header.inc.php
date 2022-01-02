@@ -24,18 +24,6 @@
         $planStmt2 = $plan->countCompletedPlans($_SESSION['client_id']);
         $planStmt3 = $plan->countOngoingPlans($_SESSION['client_id']);
 
-        // $keyd = '4324';
-        // $e = $plan->countPrioritiesForEachPlan($_SESSION['client_id'],$keyd);
-        // var_dump($e);
-        // if (empty($e)) {
-        //     $z = 0;
-        //     echo "Less than Zero with ".$z;
-        // }else{
-        //     $z = count($e);
-        //     echo "More than Zero with ".$z;
-        // }
-
-
         if (empty($planStmt)) {
             $planNum = 0;
         }else{
@@ -66,20 +54,6 @@
         $lastname = ucfirst($client->lastname);
         $fullname = $firstname ." ".$lastname;
         $email = ucfirst($client->email);
-        $address = strtolower($client->address);
-        $gender = strtolower($client->gender);
-        $dob = strtolower($client->dob);
-        $country = strtolower($client->country);
-        $state = ucwords($client->state); 
-        $contact_number = $client->contact_number;
-        $isVerified = $client->isVerified;
-        $profile_img = $client->profile_img; 
-        if ($isVerified === '1') {
-            $isVerified = "Verified";
-        }
-        if ($isVerified === '0') {
-            $isVerified = "Unverified";
-        } 
     }
     // session_destroy();
     function maskPhoneNumber($number){
@@ -195,21 +169,6 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <!-- <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="ti-bell"></i>
-                                    <p class="notification">5</p>
-                                    <p>Notifications</p>
-                                    <b class="caret"></b>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
-                              </ul>
-                        </li> -->
                         <li>
                             <a href="../api/auth/logout.php">
                                 <i class="ti-shift-right"></i>

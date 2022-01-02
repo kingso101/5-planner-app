@@ -28,7 +28,7 @@ if($client->delete()){
     http_response_code(200);
  
     // tell the user
-    echo json_encode(array("message" => "Client deleted successfully."));
+    echo json_encode(array("message" => "User deleted successfully."));
 }
  
 // if unable to delete the client
@@ -37,7 +37,7 @@ else{
     http_response_code(503);
  
     // tell the user
-    echo json_encode(array("message" => "Unable to delete client."));
+    echo json_encode(array("message" => "Unable to delete user."));
 }
 
 

@@ -1,7 +1,7 @@
 <?php
 // required headers
 header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; multipart/form-data; boundary=MultipartBoundry; charset=UTF-8");
+header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: PUT");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Access-Control-Allow-Methods, Authorization, X-Requested-With");
@@ -30,13 +30,6 @@ $client->_id = $data->_id;
 $client->firstname = $data->up_fname;
 $client->lastname = $data->up_lname;
 $client->email = $data->up_email;
-$client->country = $data->up_country;
-$client->state = $data->up_state;
-$client->contact_number = $data->up_contact_number;
-$client->gender = $data->up_gender;
-$client->dob = $data->up_dob;
-$client->address = $data->up_address;
-$client->description = $data->up_description;
 $client->modified = date('Y-m-d H:i:s');
 
 if($client->update()){

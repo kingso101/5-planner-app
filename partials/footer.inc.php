@@ -1,3 +1,16 @@
+        <!-- Add Plan type Modal -->
+        <div style="display: none;" id="addPlanTypeModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="card">
+                    <span id="addPlanTypeModalCloseBtn" class="addPlanTypeModalCloseBtn">&times;</span>
+                    <div class="header">
+                        <h4 class="title">What is this plan for?</h4>
+                    </div>
+                    <div class="content" id="add_plan_type_div"></div>
+                </div>
+            </div>
+        </div>
         <!-- Add Plan Modal -->
         <div style="display: none;" id="addPlanModal" class="modal">
             <!-- Modal content -->
@@ -5,7 +18,7 @@
                 <div class="card">
                     <span id="addPlanModalCloseBtn" class="addPlanModalCloseBtn">&times;</span>
                     <div class="header">
-                        <h4 class="title">Add Plan</h4>
+                        <h4 class="title"><span id="title">Add</span> Plan</h4>
                     </div>
                     <div class="content" id="add_div"></div>
                 </div>

@@ -22,6 +22,7 @@ class Plan{
     public $resources;
     public $plan_interval;
     public $reward;
+    public $isCompleted;
     public $priority_label;
     public $priority_date;
     public $created;
@@ -251,14 +252,13 @@ class Plan{
     }
 
     // read only one person's transfers
-    function readOnePersonPlans($_id){
-     
+    function readOnePersonPlans($client_id){
         // query to read single record
         $query = "SELECT
-                    _id, plan_id, key_id, client_id, plan_type, goal, from_date, to_date, description, resources, plan_interval, reward, priority_label, priority_date, isCompleted, created
+                     _id, plan_id, key_id, client_id, plan_type, goal, from_date, to_date, description, resources, plan_interval, reward, priority_label, priority_date, isCompleted, created
                 FROM
                     " . $this->table_name . " 
-                WHERE _id = :_id
+                WHERE client_id = :client_id
                 ORDER BY 
                     created DESC";
      
@@ -266,7 +266,7 @@ class Plan{
         $stmt = $this->conn->prepare( $query );
      
         // bind id of product to be updated
-        $stmt->bindParam(':_id', $this->_id);
+        $stmt->bindParam(':client_id', $this->client_id);
      
         // execute query
         $stmt->execute();
@@ -274,7 +274,7 @@ class Plan{
         // get retrieved row
         return $stmt;
     }
-     
+
     // update a user record
     public function update(){
      

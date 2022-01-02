@@ -163,7 +163,7 @@
 
 <body>
   <div class="main">
-    <p class="sign" align="center">Sign in</p>
+    <p class="sign" align="center">Sign In</p>
     <p class="signPill" align="center">
         <b style="color: #2452ae;">F.</b>
         <b style="color: #cfc200;">I.</b>
@@ -174,7 +174,7 @@
       <input class="un " type="text" align="center" name="email" id="email" placeholder="Enter email">
       <input class="pass" type="password" align="center" name="password" id="password" placeholder="Enter password">
       <button class="submit" align="center" id="submit" name="submit" type="submit">Log In</button>
-      <p class="forgot" align="center"><a href="javvascript:void(0)">Forgot Password?</a> </p>
+      <p class="forgot" align="center"><a href="register">Sign Up</a> </p>
     </form>
     <script>
         // trigger when login form is submitted

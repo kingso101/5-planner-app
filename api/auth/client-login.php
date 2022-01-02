@@ -1,6 +1,6 @@
 <?php
 // required headers
-header("Access-Control-Allow-Origin: http://phpajaxcrud/");
+header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
@@ -53,9 +53,7 @@ if($email_exists && password_verify($data->password, $client->password)){
         "_id" => $client->_id,
         "firstname" => $client->firstname,
         "lastname" => $client->lastname,
-        "email" => $client->email,
-        "contact_number" => $client->contact_number,
-        "profile_img" => $client->profile_img
+        "email" => $client->email
       )
     );
     
@@ -69,7 +67,7 @@ if($email_exists && password_verify($data->password, $client->password)){
         "message" => "Login was successful.",
         "status"  => "Done",
         "jwt" => $jwt,
-        "contact_number" => $client->contact_number
+        "email" => $client->email
       )
     );
   }
